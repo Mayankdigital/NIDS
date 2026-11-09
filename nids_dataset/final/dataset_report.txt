@@ -1,0 +1,160 @@
+======================================================================
+  NIDS DATASET — EDA REPORT
+======================================================================
+
+── DATASET SHAPE ─────────────────────────────────────────────────────
+  Total rows    : 4,094,979
+  Total columns : 117
+
+── CLASS DISTRIBUTION ────────────────────────────────────────────────
+  CLASS            LABEL        ROWS        %
+  --------------------------------------------
+  benign           0          33,449    0.82%
+  port_scan        1         577,667   14.11%
+  dos              2         119,173    2.91%
+  ddos             3       3,246,749   79.29%
+  brute_force      4          41,391    1.01%
+  web_attack       5          76,550    1.87%
+  --------------------------------------------
+  TOTAL                    4,094,979  100.00%
+
+  Max/Min ratio  : 97x
+
+── TRAIN / VAL / TEST SPLIT ──────────────────────────────────────────
+  CLASS            LABEL     TRAIN      VAL     TEST    TOTAL
+  ----------------------------------------------------------
+  benign           0        26,759    3,345    3,345   33,449
+  port_scan        1       462,134   57,766   57,767  577,667
+  dos              2        95,338   11,918   11,917  119,173
+  ddos             3      2,597,399  324,675  324,675 3,246,749
+  brute_force      4        33,113    4,139    4,139   41,391
+  web_attack       5        61,240    7,655    7,655   76,550
+  ----------------------------------------------------------
+  TOTAL                   3,275,983  409,498  409,498 4,094,979
+
+── PROTOCOL DISTRIBUTION ─────────────────────────────────────────────
+  TCP         :  4,084,223  (99.74%)
+  OTHER       :     10,185  (0.25%)
+  UDP         :        524  (0.01%)
+  ICMP        :         38  (0.00%)
+  ICMPv6      :          9  (0.00%)
+
+── NULL RATES (top 20 columns with nulls) ────────────────────────────
+  content_type                                 :  53.88%
+  user_agent                                   :  39.77%
+  client_fingerprint                           :   7.10%
+
+── DROPPED COLUMNS ───────────────────────────────────────────────────
+  Zero-variance (11):
+    - expiration_id
+    - vlan_id
+    - tunnel_id
+    - bidirectional_ece_packets
+    - src2dst_ece_packets
+    - dst2src_cwr_packets
+    - dst2src_ece_packets
+    - dst2src_urg_packets
+    - server_fingerprint
+    - splt_direction_0
+    - splt_piat_ms_0
+  High-null >80% (1):
+    - requested_server_name
+
+── NUMERIC FEATURE STATISTICS ────────────────────────────────────────
+  src_port                                       mean=   32261.894  std=   19084.894  min=       0.000  max=   65535.000
+  dst_port                                       mean=   11129.183  std=   10743.970  min=       0.000  max=   65535.000
+  bidirectional_first_seen_ms                    mean=1790370887515.895  std=26403763.910  min=1790329320458.000  max=1790415364794.000
+  bidirectional_last_seen_ms                     mean=1790370889517.154  std=26402656.609  min=1790329320459.000  max=1790415365775.000
+  bidirectional_duration_ms                      mean=    2001.259  std=    6194.693  min=       0.000  max=  300001.000
+  bidirectional_packets                          mean=       4.467  std=      15.188  min=       1.000  max=     767.000
+  bidirectional_bytes                            mean=     376.725  std=    2105.704  min=       0.000  max= 3095801.000
+  src2dst_first_seen_ms                          mean=1790370887515.895  std=26403763.910  min=1790329320458.000  max=1790415364794.000
+  src2dst_last_seen_ms                           mean=1790370889517.058  std=26402656.607  min=1790329320459.000  max=1790415365775.000
+  src2dst_duration_ms                            mean=    2001.164  std=    6194.624  min=       0.000  max=  300001.000
+  src2dst_packets                                mean=       2.658  std=       7.553  min=       1.000  max=     532.000
+  src2dst_bytes                                  mean=     208.939  std=    1671.697  min=       0.000  max= 3068946.000
+  dst2src_first_seen_ms                          mean=460331691624.713  std=782466338031.788  min=       0.000  max=1790415365709.000
+  dst2src_last_seen_ms                           mean=460331692454.809  std=782466339442.768  min=       0.000  max=1790415365775.000
+  dst2src_duration_ms                            mean=     830.096  std=    4490.880  min=       0.000  max=  290001.000
+  dst2src_packets                                mean=       1.809  std=       7.647  min=       0.000  max=     235.000
+  dst2src_bytes                                  mean=     167.786  std=     750.526  min=       0.000  max=   46975.000
+  bidirectional_min_ps                           mean=      54.530  std=      27.261  min=       0.000  max=   52520.000
+  bidirectional_mean_ps                          mean=      58.020  std=      29.182  min=       0.000  max=   52520.000
+  bidirectional_stddev_ps                        mean=       5.527  std=      15.447  min=       0.000  max=    6832.040
+  bidirectional_max_ps                           mean=      68.157  std=      60.320  min=       0.000  max=   52520.000
+  src2dst_min_ps                                 mean=      57.417  std=      28.079  min=       0.000  max=   52520.000
+  src2dst_mean_ps                                mean=      59.183  std=      29.693  min=       0.000  max=   52520.000
+  src2dst_stddev_ps                              mean=       3.439  std=      15.103  min=       0.000  max=    7583.265
+  src2dst_max_ps                                 mean=      66.735  std=      55.314  min=       0.000  max=   52520.000
+  dst2src_min_ps                                 mean=      14.757  std=      25.228  min=       0.000  max=     366.000
+  dst2src_mean_ps                                mean=      16.862  std=      30.324  min=       0.000  max=    2256.600
+  dst2src_stddev_ps                              mean=       3.365  std=      14.782  min=       0.000  max=    4911.626
+  dst2src_max_ps                                 mean=      23.593  std=      54.399  min=       0.000  max=   16472.000
+  bidirectional_min_piat_ms                      mean=    1168.487  std=    4476.370  min=       0.000  max=   75965.000
+  bidirectional_mean_piat_ms                     mean=    1213.749  std=    4485.814  min=       0.000  max=   75965.000
+  bidirectional_stddev_piat_ms                   mean=     127.366  std=     934.143  min=       0.000  max=   48448.835
+  bidirectional_max_piat_ms                      mean=    1709.843  std=    5499.857  min=       0.000  max=  119513.000
+  src2dst_min_piat_ms                            mean=    1252.417  std=    4623.475  min=       0.000  max=   75965.000
+  src2dst_mean_piat_ms                           mean=    1286.758  std=    4622.292  min=       0.000  max=   75965.000
+  src2dst_stddev_piat_ms                         mean=     110.841  std=     853.211  min=       0.000  max=   48448.835
+  src2dst_max_piat_ms                            mean=    1709.794  std=    5499.870  min=       0.000  max=  119513.000
+  dst2src_min_piat_ms                            mean=      91.219  std=    1290.944  min=       0.000  max=   26970.000
+  dst2src_mean_piat_ms                           mean=     124.025  std=    1314.576  min=       0.000  max=   26970.000
+  dst2src_stddev_piat_ms                         mean=     108.119  std=     850.599  min=       0.000  max=   37245.435
+  dst2src_max_piat_ms                            mean=     540.533  std=    3384.420  min=       0.000  max=  119513.000
+  bidirectional_syn_packets                      mean=       1.618  std=       2.401  min=       0.000  max=      52.000
+  bidirectional_cwr_packets                      mean=       0.000  std=       0.000  min=       0.000  max=       1.000
+  bidirectional_urg_packets                      mean=       0.000  std=       0.000  min=       0.000  max=       1.000
+  bidirectional_ack_packets                      mean=       3.131  std=      14.001  min=       0.000  max=     767.000
+  bidirectional_psh_packets                      mean=       0.847  std=       4.015  min=       0.000  max=     569.000
+  bidirectional_rst_packets                      mean=       0.199  std=       0.584  min=       0.000  max=      13.000
+  bidirectional_fin_packets                      mean=       0.489  std=       2.415  min=       0.000  max=      52.000
+  src2dst_syn_packets                            mean=       1.286  std=       1.129  min=       0.000  max=      26.000
+  src2dst_cwr_packets                            mean=       0.000  std=       0.000  min=       0.000  max=       1.000
+  src2dst_urg_packets                            mean=       0.000  std=       0.000  min=       0.000  max=       1.000
+  src2dst_ack_packets                            mean=       1.359  std=       6.466  min=       0.000  max=     532.000
+  src2dst_psh_packets                            mean=       0.341  std=       1.648  min=       0.000  max=     486.000
+  src2dst_rst_packets                            mean=       0.020  std=       0.205  min=       0.000  max=      12.000
+  src2dst_fin_packets                            mean=       0.219  std=       1.173  min=       0.000  max=      26.000
+  dst2src_syn_packets                            mean=       0.332  std=       1.305  min=       0.000  max=      26.000
+  dst2src_ack_packets                            mean=       1.772  std=       7.546  min=       0.000  max=     235.000
+  dst2src_psh_packets                            mean=       0.506  std=       2.472  min=       0.000  max=      83.000
+  dst2src_rst_packets                            mean=       0.180  std=       0.553  min=       0.000  max=      13.000
+  dst2src_fin_packets                            mean=       0.270  std=       1.280  min=       0.000  max=      26.000
+  application_is_guessed                         mean=       0.794  std=       0.404  min=       0.000  max=       1.000
+  application_confidence                         mean=       1.179  std=       1.310  min=       0.000  max=       7.000
+  splt_direction_1                               mean=      -0.413  std=       0.869  min=      -1.000  max=       1.000
+  splt_direction_2                               mean=      -0.926  std=       0.263  min=      -1.000  max=       1.000
+  splt_direction_3                               mean=      -0.924  std=       0.284  min=      -1.000  max=       1.000
+  splt_direction_4                               mean=      -0.870  std=       0.491  min=      -1.000  max=       1.000
+  splt_direction_5                               mean=      -0.880  std=       0.465  min=      -1.000  max=       1.000
+  splt_direction_6                               mean=      -0.927  std=       0.294  min=      -1.000  max=       1.000
+  splt_direction_7                               mean=      -0.873  std=       0.486  min=      -1.000  max=       1.000
+  splt_direction_8                               mean=      -0.935  std=       0.251  min=      -1.000  max=       1.000
+  splt_direction_9                               mean=      -0.874  std=       0.485  min=      -1.000  max=       1.000
+  splt_ps_0                                      mean=      57.940  std=      28.307  min=       0.000  max=   52520.000
+  splt_ps_1                                      mean=      18.628  std=      28.376  min=      -1.000  max=     366.000
+  splt_ps_2                                      mean=       3.782  std=      17.163  min=      -1.000  max=    1643.000
+  splt_ps_3                                      mean=      12.550  std=      51.772  min=      -1.000  max=     323.000
+  splt_ps_4                                      mean=       3.376  std=      16.908  min=      -1.000  max=     322.000
+  splt_ps_5                                      mean=      11.259  std=      49.814  min=      -1.000  max=   11011.000
+  splt_ps_6                                      mean=       3.398  std=      18.964  min=      -1.000  max=   16472.000
+  splt_ps_7                                      mean=       6.873  std=      31.774  min=      -1.000  max=    1561.000
+  splt_ps_8                                      mean=       3.732  std=      20.296  min=      -1.000  max=   16472.000
+  splt_ps_9                                      mean=       3.358  std=      16.859  min=      -1.000  max=    1643.000
+  splt_piat_ms_1                                 mean=    1168.273  std=    4476.483  min=      -1.000  max=   75965.000
+  splt_piat_ms_2                                 mean=      83.253  std=    1244.257  min=      -1.000  max=  101120.000
+  splt_piat_ms_3                                 mean=       6.548  std=     366.238  min=      -1.000  max=   26031.000
+  splt_piat_ms_4                                 mean=      -0.862  std=      22.685  min=      -1.000  max=   22960.000
+  splt_piat_ms_5                                 mean=      -0.771  std=      28.568  min=      -1.000  max=   18929.000
+  splt_piat_ms_6                                 mean=      -0.887  std=      16.117  min=      -1.000  max=   16384.000
+  splt_piat_ms_7                                 mean=      -0.868  std=      12.160  min=      -1.000  max=    9023.000
+  splt_piat_ms_8                                 mean=      -0.840  std=      13.905  min=      -1.000  max=    9999.000
+  splt_piat_ms_9                                 mean=       0.759  std=     106.003  min=      -1.000  max=   18387.000
+  packets_per_sec                                mean=    1157.785  std=    1088.190  min=       0.026  max=   18000.000
+  bytes_per_packet                               mean=      58.020  std=      29.182  min=       0.000  max=   52520.000
+  bytes_per_sec                                  mean=   69258.354  std=   99737.140  min=       0.000  max=52520000.000
+
+======================================================================
+  Generated by process/merge_dataset.py (v2)
+======================================================================

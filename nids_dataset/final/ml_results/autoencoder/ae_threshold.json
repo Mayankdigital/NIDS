@@ -1,0 +1,8 @@
+{
+  "threshold": 0.06597075114747139,
+  "percentile": 99,
+  "train_samples": 925553,
+  "val_mse_mean": 0.0683603050385151,
+  "val_mse_p99": 0.06421561010556646,
+  "false_alarm_pct": 0.9759203590211408
+}

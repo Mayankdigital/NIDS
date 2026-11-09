@@ -1,0 +1,28 @@
+=== VALIDATION ===
+              precision    recall  f1-score   support
+
+      BENIGN       0.99      1.00      0.99      3345
+   PORT_SCAN       1.00      1.00      1.00     57766
+         DOS       0.92      0.99      0.95     11918
+        DDOS       1.00      1.00      1.00    324675
+ BRUTE_FORCE       1.00      1.00      1.00      4139
+  WEB_ATTACK       1.00      1.00      1.00      7655
+
+    accuracy                           1.00    409498
+   macro avg       0.98      1.00      0.99    409498
+weighted avg       1.00      1.00      1.00    409498
+
+
+=== TEST ===
+              precision    recall  f1-score   support
+
+      BENIGN       0.99      1.00      0.99      3345
+   PORT_SCAN       1.00      1.00      1.00     57767
+         DOS       0.92      0.99      0.95     11917
+        DDOS       1.00      1.00      1.00    324675
+ BRUTE_FORCE       1.00      1.00      1.00      4139
+  WEB_ATTACK       1.00      1.00      1.00      7655
+
+    accuracy                           1.00    409498
+   macro avg       0.98      1.00      0.99    409498
+weighted avg       1.00      1.00      1.00    409498

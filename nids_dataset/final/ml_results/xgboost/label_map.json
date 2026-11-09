@@ -1,0 +1,8 @@
+{
+  "0": "BENIGN",
+  "1": "PORT_SCAN",
+  "2": "DOS",
+  "3": "DDOS",
+  "4": "BRUTE_FORCE",
+  "5": "WEB_ATTACK"
+}

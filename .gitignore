@@ -1,0 +1,17 @@
+# Python environment / cache
+venv/
+__pycache__/
+*.pyc
+
+# Packet captures and their prediction outputs
+*.pcap
+*.pcap.*
+
+# Large datasets
+nfstream-*.csv
+nids_dataset/processed/
+nids_dataset/final/*.csv
+*.bak
+
+# Logs
+logs/
